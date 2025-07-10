@@ -60,7 +60,11 @@ $paths = @(
   "$env:LocalAppData\Google\Chrome\User Data\ShaderCache",
   "$env:LocalAppData\Google\Chrome\User Data\Profile*\Cache",
   "$env:LocalAppData\Google\Chrome\User Data\Profile*\Code Cache",
-  "$env:LocalAppData\Google\Chrome\User Data\Profile*\GPUCache"
+  "$env:LocalAppData\Google\Chrome\User Data\Profile*\GPUCache",
+  # QQ electron 应用缓存（递归多层目录）
+  "$env:AppData\QQ\**\Cache",
+  "$env:AppData\QQ\**\GPUCache",
+  "$env:AppData\QQ\**\Code Cache"
 )
 
 foreach ($p in $paths) {
