@@ -2,7 +2,6 @@
 .SYNOPSIS
   一键清理常用缓存。
 #>
-
 # 定义缓存路径列表
 $paths = @(
   # nodejs
@@ -62,21 +61,24 @@ $paths = @(
   "$env:LocalAppData\Google\Chrome\User Data\Profile*\Code Cache",
   "$env:LocalAppData\Google\Chrome\User Data\Profile*\GPUCache",
   # QQ electron 应用缓存（递归多层目录）
-  "$env:AppData\QQ\**\Cache",
-  "$env:AppData\QQ\**\GPUCache",
-  "$env:AppData\QQ\**\Code Cache"
+  "$env:AppData\QQ\Cache",
+  "$env:AppData\QQ\GPUCache",
+  "$env:AppData\QQ\Code Cache",
+  "$env:AppData\QQ\Partitions\**\*Cache",
+  "$env:AppData\QQ\miniapp\temps"
+  
 )
 
 foreach ($p in $paths) {
   # 使用 Resolve-Path 来处理可能存在的通配符，它会返回所有匹配的实际路径
-  $resolvedPaths = Resolve-Path -Path $p -ErrorAction SilentlyContinue
+  $resolvedPaths = Get-ChildItem -Recurse -Path $p -ErrorAction SilentlyContinue
 
   if ($resolvedPaths) {
     # 遍历所有解析出来的真实路径
     foreach ($actualPath in $resolvedPaths) {
       if (Test-Path $actualPath) {
         Write-Host "正在删除缓存：$actualPath"
-        Remove-Item -LiteralPath $actualPath -Recurse -Force -ErrorAction SilentlyContinue
+        # Remove-Item -LiteralPath $actualPath -Recurse -Force -ErrorAction SilentlyContinue
       }
     }
   }
