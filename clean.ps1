@@ -116,12 +116,13 @@ foreach ($p in $paths) {
   if ($resolvedPaths) {
     # 遍历所有解析出来的真实路径
     foreach ($actualPath in $resolvedPaths) {
-      if (Test-Path $actualPath) {
+      $path = $actualPath.FullName
+      if (Test-Path $path) {
         if ($dryRun) {
-          Write-Host "[Dry-Run] 将要删除缓存：$actualPath"
+          Write-Host "[Dry-Run] 将要删除缓存：$path"
         } else {
-          Write-Host "正在删除缓存：$actualPath"
-          Remove-Item -LiteralPath $actualPath -Recurse -Force -ErrorAction SilentlyContinue
+          Write-Host "正在删除缓存：$path"
+          Remove-Item -LiteralPath $path -Recurse -Force -ErrorAction SilentlyContinue
         }
       }
     }
