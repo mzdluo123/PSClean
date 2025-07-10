@@ -33,6 +33,7 @@ $paths = @(
   # python
   "$env:LocalAppData\uv\cache",
   "$env:LocalAppData\pip\Cache",
+  "$env:UserProfile\pipx\.cache",
   # java
   "$env:USERPROFILE\.m2\repository",
   "$env:USERPROFILE\.m2\build-cache",
@@ -107,6 +108,7 @@ $paths = @(
   "$env:USERPROFILE\AppData\Local\Microsoft\Windows\Explorer\*.log",
   "$env:USERPROFILE\AppData\Local\Microsoft\Windows\Explorer\*.tmp"
 
+  "$env:USERPROFILE\.cache"
 )
 
 foreach ($p in $paths) {
