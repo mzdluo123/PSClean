@@ -87,9 +87,25 @@ $paths = @(
   "$env:AppData\QQ\*cache",
   "$env:AppData\QQ\Partitions\**\*Cache",
   "$env:AppData\QQ\miniapp\temps"
+
   # 网易云音乐缓存
   "$env:LocalAppData\Netease\CloudMusic\Cache",
-  "$env:LocalAppData\Netease\CloudMusic\webapp*\*cache"
+  "$env:LocalAppData\Netease\CloudMusic\webapp*\*cache",
+
+  # Windows 系统常见缓存
+  "$env:LocalAppData\Temp",
+  "$env:Temp",
+  "$env:SystemRoot\Temp",
+  "$env:USERPROFILE\AppData\Local\Microsoft\Windows\INetCache",
+  "$env:USERPROFILE\AppData\Local\Microsoft\Windows\WER",
+  "$env:USERPROFILE\AppData\Local\Microsoft\Windows\WebCache",
+  "$env:USERPROFILE\AppData\Local\CrashDumps",
+  "$env:USERPROFILE\AppData\Local\D3DSCache",
+  "$env:USERPROFILE\AppData\Local\Microsoft\Windows\Explorer\thumbcache_*",
+  "$env:USERPROFILE\AppData\Local\Microsoft\Windows\Explorer\iconcache_*",
+  "$env:USERPROFILE\AppData\Local\Microsoft\Windows\Explorer\*.db",
+  "$env:USERPROFILE\AppData\Local\Microsoft\Windows\Explorer\*.log",
+  "$env:USERPROFILE\AppData\Local\Microsoft\Windows\Explorer\*.tmp"
 
 )
 
