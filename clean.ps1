@@ -56,6 +56,9 @@ $paths = @(
   "$env:AppData\Code\Cache",
   "$env:AppData\Code\CachedData",
   "$env:AppData\Code\User\workspaceStorage",
+  # intellj
+  "$env:LocalAppData\JetBrains\**\caches",
+
   # edge
   "$env:LocalAppData\Microsoft\Edge\User Data\Default\Cache",
   "$env:LocalAppData\Microsoft\Edge\User Data\Default\Code Cache",
